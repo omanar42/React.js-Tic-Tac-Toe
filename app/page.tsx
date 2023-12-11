@@ -1,12 +1,17 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
+import styles from "./page.module.css";
+import Cell from "./components/cell";
+import { useState } from "react";
 
 export default function Home() {
+  const [cells, setCells] = useState(Array(9).fill(null));
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-       <h1>Tic-Tac-Toe in React.js!</h1>
+    <div className='container'>
+      <div className='gameBoard'>
+        {cells.map((cell, index) => (
+          <Cell key={index} />
+        ))}
       </div>
-    </main>
-  )
+    </div>
+  );
 }
